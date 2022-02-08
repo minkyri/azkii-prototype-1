@@ -1,0 +1,15 @@
+E:\cs-project\solutions\azkii\bin\Debug\net6.0\azkii.exe
+E:\cs-project\solutions\azkii\bin\Debug\net6.0\azkii.deps.json
+E:\cs-project\solutions\azkii\bin\Debug\net6.0\azkii.runtimeconfig.json
+E:\cs-project\solutions\azkii\bin\Debug\net6.0\azkii.dll
+E:\cs-project\solutions\azkii\bin\Debug\net6.0\ref\azkii.dll
+E:\cs-project\solutions\azkii\bin\Debug\net6.0\azkii.pdb
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.csproj.AssemblyReference.cache
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.GeneratedMSBuildEditorConfig.editorconfig
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.AssemblyInfoInputs.cache
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.AssemblyInfo.cs
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.csproj.CoreCompileInputs.cache
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.dll
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\ref\azkii.dll
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.pdb
+E:\cs-project\solutions\azkii\obj\Debug\net6.0\azkii.genruntimeconfig.cache
