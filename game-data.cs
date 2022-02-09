@@ -2,10 +2,15 @@ public static class GameData{
 
     public static int nowhere = -1;
     public static int invoid = int.MaxValue;
-
+    public static string restartMessage = "Would you like to play again?";
+    public static string quitMessage = "Thanks for playing";
+    public static string openingMessage = "\nWest of House\nYou are standing in an open field west of a white house, " + 
+        "with a boarded front door.\nThere is a small mailbox here.";
+    public static Action<int[]> openingAction = VerbF.Look;
     public static void SetupGame(){
 
-        Game.GetInstance().player = new Player(ConsF.print("What's your name?"), 1);
+        Game.GetInstance().isFinished = false;
+        Game.GetInstance().player = new Player(GameF.Input("What's your name?"), 1);
         Game.GetInstance().locations = new Location[]{
 
             //N,NE,E,SE,S,SW,W,NW,U,D
@@ -57,30 +62,123 @@ public static class GameData{
                 Location (int = index of Location array)
 
             */
-            new Item(//0
+            #region Directions
+
+                new Item(
                 
-                "Golden Watch", 
-                "a shiny golden watch with a large diamond in the centre", 
-                1
+                    "north", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
                 
-            ),
-            new Item(//1
+                    "northeast", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
                 
-                "Sword", 
-                "a long and sharp sword with a comfortable handle", 
-                2
+                    "east", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
                 
-            ),
-            new Item(//2
+                    "southeast", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
                 
-                "Hammer", 
-                "a rusty old hammer", 
-                3
+                    "south", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
                 
-            )
+                    "southwest", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
+                
+                    "west", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
+                
+                    "northwest", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
+                
+                    "up", 
+                    "", 
+                    invoid
+                    
+                ),
+                new Item(
+                
+                    "down", 
+                    "", 
+                    invoid
+                    
+                ),
+
+            #endregion
+            #region Items
+
+                new Item(//10 (zero indexing, after directions)
+                
+                    "golden watch", 
+                    "a shiny golden watch with a large diamond in the centre", 
+                    1
+                    
+                ),
+                new Item(//11
+                    
+                    "sword", 
+                    "a long and sharp sword with a comfortable handle", 
+                    2
+                    
+                ),
+                new Item(//12
+                    
+                    "hammer", 
+                    "a rusty old hammer", 
+                    3
+                    
+                )
+
+            #endregion
 
         };
 
+        Parser.SetVerbs(new Verb[]{
+
+            new Verb("go", VerbF.Go)
+
+        });
+
     }
+
+}
+public static class VerbF{
+
+    #region Directions
+        public static void Go(int[] objects){}
+        public static void Look(int[] objects){}
+
+    #endregion
 
 }

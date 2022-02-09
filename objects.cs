@@ -1,6 +1,7 @@
 public class Game{
 
         private static Game instance;
+        public bool isFinished;
         public Player player;
         public Location[] locations;
         public Item[] items;
@@ -14,7 +15,9 @@ public class Game{
     {
         if (instance == null)
         {
+
             instance = new Game();
+
         }
         return instance;
     }
