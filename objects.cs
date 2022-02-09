@@ -1,31 +1,76 @@
-class GameObj{
+public class Game{
 
-    public string name;
-    public int location;
+        private static Game instance;
+        public Player player;
+        public Location[] locations;
+        public Item[] items;
+
+    private Game(){
+
+
+
+    }
+    public static Game GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Game();
+        }
+        return instance;
+    }
 
 }
-class Location : GameObj{
+public class GameObj{
+
+    public string name;
+
+}
+public class Location : GameObj{
 
     public string description;
     public int[] travelTable = new int[10];
 
+    public Location(string setName, string setDescription, int[] setTravelTable){
+
+        name = setName;
+        description = setDescription;
+        travelTable = setTravelTable;
+
+    }
+
 }
-class Item : GameObj{
+public class Item : GameObj{
 
     public string description;
+    public int location;
+
+    public Item(string setName, string setDescription,int setLocation){
+
+        name = setName;
+        location = setLocation;
+        description = setDescription;
+
+    }
 
 }
-class Player : GameObj{
+public class Player : GameObj{
 
+    public int location;
 
+    public Player(string setName, int setLocation){
+
+        name = setName;
+        location = setLocation;
+
+    }
 
 }
-class Verb{
+public class Verb{
 
     public string word;
-    public Func<Game, int[]> function;
+    public Action<int[]> function;
 
-    public Verb(string setWord, Func<Game, int[]> setFunction){
+    public Verb(string setWord, Action<int[]> setFunction){
 
         word = setWord;
         function = setFunction;
