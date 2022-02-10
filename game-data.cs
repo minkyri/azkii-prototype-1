@@ -4,13 +4,12 @@ public static class GameData{
     public static int invoid = int.MaxValue;
     public static string restartMessage = "Would you like to play again?";
     public static string quitMessage = "Thanks for playing";
-    public static string openingMessage = "\nWest of House\nYou are standing in an open field west of a white house, " + 
-        "with a boarded front door.\nThere is a small mailbox here.";
+    public static string openingMessage = "";
     public static Action<int[]> openingAction = VerbF.Look;
     public static void SetupGame(){
 
         Game.GetInstance().isFinished = false;
-        Game.GetInstance().player = new Player(GameF.Input("What's your name?"), 1);
+        Game.GetInstance().player = new Player(GameF.Input("What's your name?\n"), 1);
         Game.GetInstance().locations = new Location[]{
 
             //N,NE,E,SE,S,SW,W,NW,U,D
@@ -138,13 +137,6 @@ public static class GameData{
             #endregion
             #region Items
 
-                new Item(//10 (zero indexing, after directions)
-                
-                    "golden watch", 
-                    "a shiny golden watch with a large diamond in the centre", 
-                    1
-                    
-                ),
                 new Item(//11
                     
                     "sword", 
@@ -166,7 +158,8 @@ public static class GameData{
 
         Parser.SetVerbs(new Verb[]{
 
-            new Verb("go", VerbF.Go)
+            new Verb("go", VerbF.Go),
+            new Verb("look", VerbF.Look)
 
         });
 
@@ -176,8 +169,46 @@ public static class GameData{
 public static class VerbF{
 
     #region Directions
-        public static void Go(int[] objects){}
-        public static void Look(int[] objects){}
+        public static void Go(int[] objects){
+
+            if(objects.Length > 1){
+
+                GameF.print("You can only go in one direction!");
+                return;
+
+            }
+            if(objects[0] < 10 && objects[0] >= 0){
+
+                if(Game.GetInstance().locations[Game.GetInstance().player.location].travelTable[objects[0]] == -1){
+
+                    GameF.print("You can't go that way!");
+                    return;
+
+                }
+                Game.GetInstance().player.location = Game.GetInstance().locations[Game.GetInstance().player.location].travelTable[objects[0]];
+                GameF.print("You move " + Game.GetInstance().items[objects[0]].name);
+                Look(new int[0]);
+
+            }
+            else if(GameF.IsItemWithPlayer(objects[0])){
+
+                GameF.print("You hit your head against the " + Game.GetInstance().items[objects[0]].name + " as you attempt this feat.");
+
+            }
+            else{
+
+                GameF.print("You can't see any " + Game.GetInstance().items[objects[0]].name + " here.");
+
+            }
+
+
+        }
+        public static void Look(int[] objects){
+
+            int playerLocationIndex = Game.GetInstance().player.location;
+            GameF.print(Game.GetInstance().locations[playerLocationIndex].description);
+
+        }
 
     #endregion
 

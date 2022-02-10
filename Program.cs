@@ -6,7 +6,7 @@ PlayGame();
 void PlayGame(){
 
     GameData.SetupGame();
-    GameF.print(GameData.openingMessage);
+    if(GameData.openingMessage != "")GameF.print(GameData.openingMessage);
     GameData.openingAction(new int[]{});
 
     do{
