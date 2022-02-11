@@ -73,38 +73,5 @@ public static class GameF{
         return false;
 
     }
-    /*public static bool IsDirectionIndex(int itemIndex, int[] ){
-
-        string[] possibleDirections = new string[]{
-
-            "north",
-            "northeast",
-            "east",
-            "southeast",
-            "south",
-            "southwest",
-            "west",
-            "northwest",
-            "up",
-            "down",
-
-        };
-        for(int i = 0; i < Game.GetInstance().items.Length; i++){
-
-            foreach(string dir in possibleDirections){
-
-                if(Game.GetInstance().items[i].name == dir){
-
-                    return true;
-
-                }
-
-            }
-
-        }
-
-        return false;
-
-    }*/
 
 }
