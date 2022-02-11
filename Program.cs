@@ -1,8 +1,6 @@
 ﻿// GameData.SetupGame();
 // GameF.print(GameF.FindItemIndex(GameF.print("Enter name of existing item")).ToString());
 
-//sus
-
 PlayGame();
 
 void PlayGame(){
